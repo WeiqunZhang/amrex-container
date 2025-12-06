@@ -16,8 +16,8 @@ two subdirectories,
 A precompiled AMReX library is located at `~/amrex/installdir`. To run some
 tests using CTest,
 ```
-$ cd ~/amrex/
-$ ctest --test-dir build
+$ cd ~/amrex/build
+$ ctest
 ```
 
 If you are a GNU Make user, you can do the following to compile and run the
