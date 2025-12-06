@@ -10,8 +10,8 @@ $ docker run -it weiqunzhang/amrex:latest
 
 This will put you in `/home/amrexuser`. Inside this directory, you will find
 two subdirectories,
-  * `amrex`: the AMReX source code (with a CMake build directory inside)
-  * `amrex-101`: an example code
+  * `amrex`: the AMReX source code (with a CMake build directory inside),
+  * `amrex-101`: an example code.
 
 A precompiled AMReX library is located at `~/amrex/installdir`. To run some
 tests using CTest,
@@ -48,6 +48,6 @@ $ pvpython paraview_amr101.py
 To get the movie files to the host, run this from a terminal on the *host*
 while the container is still running.
 ```
-$ docker cp $(docker ps -q | head -n1)://amrex-101/Amr/Exec/amr101_3D.avi .
-$ docker cp $(docker ps -q | head -n1)://amrex-101/Amr/Exec/amr101_3D.gif .
+$ docker cp $(docker ps -q | head -n1)://home/amrexuser/amrex-101/Amr/Exec/amr101_3D.avi .
+$ docker cp $(docker ps -q | head -n1)://home/amrexuser/amrex-101/Amr/Exec/amr101_3D.gif .
 ```
