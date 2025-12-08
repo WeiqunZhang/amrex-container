@@ -71,5 +71,10 @@ RUN git clone --branch 25.12 --depth 1 https://github.com/AMReX-Codes/pyamrex.gi
 ARG CACHE_BUST=unknown
 RUN git clone https://github.com/WeiqunZhang/amrex-101.git
 
+# The ParticleMesh test has OpenMPI issue on Mac.
+RUN if [ "$TARGETARCH" = "arm64" ]; then \
+      sed -i 's|^\(subdirs("Particles/ParticleMesh")\)|# \1|' ~/amrex/build/Tests/CTestTestfile.cmake; \
+    fi
+
 ENV AMReX_ROOT=/home/amrexuser/amrex/installdir
 CMD ["/bin/bash"]
